@@ -17,6 +17,6 @@ setWallpaper(void) {
 */
 import "C"
 
-func Set() {
+func Set(name string) {
 	C.setWallpaper()
 }
