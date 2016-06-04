@@ -1,13 +1,16 @@
 package wallpaper
 
 import (
-	"fmt"
-	"syscall"
-	"unsafe"
+	"errors"
 
 	"github.com/lxn/win"
 )
 
-func Set(name string) {
-	win.SystemParametersInfo(20, 0, unsafe.Pointer(syscall.StringToUTF16Ptr(name)), 0)
+func Set(name string) error {
+	result := win.SystemParametersInfo(20, 0, unsafe.Pointer(syscall.StringToUTF16Ptr(name)), 0)
+
+	if !result {
+		return errors.New("Failed to set background.")
+	}
+	return nil
 }

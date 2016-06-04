@@ -19,6 +19,7 @@ setWallpaper(char* name) {
 */
 import "C"
 
-func Set(name string) {
+func Set(name string) error {
 	C.setWallpaper(C.CString(name))
+	return nil
 }
