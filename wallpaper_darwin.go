@@ -18,5 +18,5 @@ setWallpaper(void) {
 import "C"
 
 func Set() {
-  C.setWallpaper()
+	C.setWallpaper()
 }
