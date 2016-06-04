@@ -6,17 +6,19 @@ package wallpaper
 #import <Cocoa/Cocoa.h>
 
 void
-setWallpaper(void) {
-     NSURL *imageURL = [NSURL URLWithString:@"file:///Users/ddrboxman/Pictures/0491C000395F7DB9E4EC06334FD01DC5.png"];
+setWallpaper(char* name) {
+     NSString *nsName =  [NSString stringWithUTF8String:name];
+     NSString *urlString = [NSString stringWithFormat:@"file://%@", nsName];
+     NSURL *imageURL = [NSURL URLWithString:urlString];
     [[NSWorkspace sharedWorkspace] setDesktopImageURL:imageURL
                                    forScreen:[NSScreen mainScreen]
                                    options:nil
                                    error:nil];
-
+    free(name);
 }
 */
 import "C"
 
 func Set(name string) {
-	C.setWallpaper()
+	C.setWallpaper(C.CString(name))
 }

@@ -1,7 +1,16 @@
 package main
 
-import "github.com/DDRBoxman/wallpaper"
+import (
+	"fmt"
+	"os"
+
+	"github.com/DDRBoxman/wallpaper"
+)
 
 func main() {
-	wallpaper.Set()
+	if len(os.Args) <= 1 {
+		fmt.Println("Please specify a file")
+		return
+	}
+	wallpaper.Set(os.Args[1])
 }
