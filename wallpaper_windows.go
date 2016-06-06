@@ -2,6 +2,8 @@ package wallpaper
 
 import (
 	"errors"
+	"syscall"
+	"unsafe"
 
 	"github.com/lxn/win"
 )
