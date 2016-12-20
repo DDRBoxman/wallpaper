@@ -12,7 +12,7 @@ setWallpaper(char* name) {
      NSURL *imageURL = [NSURL URLWithString:urlString];
     [[NSWorkspace sharedWorkspace] setDesktopImageURL:imageURL
                                    forScreen:[NSScreen mainScreen]
-                                   options:nil
+                                   options:@{}
                                    error:nil];
     free(name);
 }
